@@ -1,0 +1,325 @@
+/* style.css - Enhanced PSIS Semarang Website Styling - Blue & White Theme */
+
+/* Global Styles */
+:root {
+    --primary-color: #1a3e72; /* PSIS blue - Main Blue */
+    --primary-light: #2a4e82; /* Lighter blue for accents or gradients */
+    --primary-dark: #0f2a50;  /* Darker blue for depth or text on light blue */
+    --secondary-color: #e31937; /* PSIS red accent - Keep for specific highlights */
+    --accent-color: #f8c300; /* Gold accent - Keep for specific highlights */
+    --text-color-on-blue: #ffffff; /* White text on blue backgrounds */
+    --text-color-on-white: #333333; /* Dark text on white backgrounds */
+    --text-light-on-white: #555555;
+    --light-bg: #f0f4f8; /* Very light blue or off-white for contrasting sections */
+    --white: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for blue bg */
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color-on-blue); /* Default text color for blue background */
+    background-color: var(--primary-color); /* Main background blue */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    /* Gradient can be adjusted or simplified if a solid blue is preferred */
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
+    color: var(--white);
+    padding: 2.5rem 0;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    position: relative; /* Changed from 'center' to 'relative' for proper pseudo-element positioning */
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--accent-color); /* Gold accent for header top border */
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Slightly adjusted shadow */
+    position: relative;
+    display: inline-block;
+    color: var(--white); /* Ensure h1 is white on header */
+}
+
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color); /* Gold accent for h1 underline */
+}
+
+/* Navigation Styles */
+nav {
+    background-color: var(--primary-light); /* Lighter blue for nav bar */
+    box-shadow: var(--shadow-sm);
+    position: sticky; /* Sticky nav for better usability */
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--white); /* White links on light blue nav */
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    position: relative;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: var(--white); /* White background on hover */
+    color: var(--primary-dark);    /* Dark blue text on hover */
+    transform: translateY(-2px);
+}
+
+nav a.active {
+    background-color: var(--white);
+    color: var(--primary-dark);
+    font-weight: 700; /* Bolder active link */
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.section {
+    background: var(--light-bg); /* Light background for sections, contrasting with blue body */
+    color: var(--text-color-on-white); /* Dark text for light background sections */
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+}
+
+.section:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+h2 {
+    color: var(--primary-dark); /* Dark blue for headings inside sections */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent-color); /* Gold accent for h2 underline */
+}
+
+h3 {
+    color: var(--primary-color); /* Main blue for h3 */
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+    position: relative;
+    padding-left: 1rem;
+}
+
+h3::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-color); /* Gold accent for h3 side border */
+    border-radius: 2px;
+}
+
+p {
+    color: var(--white); /* Lighter dark text for paragraphs in sections */
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Image Styles */
+.img-container {
+    text-align: center;
+    margin: 2.5rem 0;
+    position: relative;
+}
+
+.img-container img {
+    border: 5px solid var(--white); /* White border for images */
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    max-width: 100%;
+    height: auto;
+    transition: var(--transition);
+}
+
+.img-container img:hover {
+    transform: scale(1.02) rotate(1deg); /* Added slight rotation for more dynamic hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* List Styles */
+ol, ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--white); /* Ensure list text color is correct on light section bg */
+}
+
+ol {
+    list-style-type: none;
+    counter-reset: custom-counter;
+}
+
+ol li {
+    counter-increment: custom-counter;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+ol li::before {
+    content: counter(custom-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--primary-color); /* Blue background for ordered list numbers */
+    color: var(--white);             /* White text for numbers */
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+ul li {
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 1.8rem;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7em; /* Adjust vertical alignment if needed */
+    transform: translateY(-50%); /* Center the bullet */
+    width: 0.6em;
+    height: 0.6em;
+    background: var(--accent-color); /* Gold accent for unordered list bullets */
+    border-radius: 50%;
+}
+
+/* Footer Styles */
+footer {
+    background: var(--primary-dark); /* Darker blue for footer */
+    color: var(--white);
+    text-align: center;
+    padding: 2.5rem 0; /* Increased padding */
+    margin-top: 3rem;
+    border-top: 3px solid var(--accent-color); /* Gold accent top border for footer */
+}
+
+footer p {
+    color: var(--light-bg); /* Lighter text for footer on dark blue */
+    margin-bottom: 0;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem; /* Slightly smaller for mobile */
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center; /* Center items in column nav */
+    }
+    
+    nav a {
+        padding: 0.6rem 1.2rem; /* Adjusted padding */
+        display: block; /* Make links take full width for easier tapping */
+        text-align: center;
+    }
+    
+    main {
+        padding: 0 1rem;
+        margin: 1.5rem auto; /* Adjusted margin for mobile */
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Ensure Montserrat font is linked in HTML: */
+/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> */
