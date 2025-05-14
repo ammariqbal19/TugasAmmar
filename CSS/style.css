@@ -1,4 +1,4 @@
-/* style.css - Enhanced PSIS Semarang Website Styling - Blue & White Theme */
+/* Enhanced style.css - PSIS Semarang Website Styling - Blue & White Theme */
 
 /* Global Styles */
 :root {
@@ -7,15 +7,15 @@
     --primary-dark: #0f2a50;  /* Darker blue for depth or text on light blue */
     --secondary-color: #e31937; /* PSIS red accent - Keep for specific highlights */
     --accent-color: #f8c300; /* Gold accent - Keep for specific highlights */
-    --text-color-on-blue: #ffffff; /* White text on blue backgrounds */
-    --text-color-on-white: #333333; /* Dark text on white backgrounds */
-    --text-light-on-white: #555555;
+    --text-color-on-dark: #ffffff; /* White text on dark backgrounds */
+    --text-color-on-light: #333333; /* Dark text on light backgrounds */
+    --text-light-on-light: #555555;
     --light-bg: #f0f4f8; /* Very light blue or off-white for contrasting sections */
     --white: #ffffff;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2); /* Slightly darker shadow for blue bg */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
     --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
     --transition: all 0.3s ease;
-}
+} 
 
 * {
     margin: 0;
@@ -25,9 +25,9 @@
 
 body {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.7;
-    color: var(--text-color-on-blue); /* Default text color for blue background */
-    background-color: var(--primary-color); /* Main background blue */
+    line-height: 1.6;
+    color: var(--text-color-on-light);
+    background-color: var(--light-bg);
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -37,13 +37,12 @@ body {
 
 /* Header Styles */
 header {
-    /* Gradient can be adjusted or simplified if a solid blue is preferred */
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-light));
-    color: var(--white);
-    padding: 2.5rem 0;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+    color: var(--text-color-on-dark);
+    padding: 2rem 0;
     text-align: center;
     box-shadow: var(--shadow-md);
-    position: relative; /* Changed from 'center' to 'relative' for proper pseudo-element positioning */
+    position: relative;
     overflow: hidden;
 }
 
@@ -54,22 +53,22 @@ header::before {
     left: 0;
     right: 0;
     height: 5px;
-    background: var(--accent-color); /* Gold accent for header top border */
+    background: var(--white);
 }
 
-h1 {
+header h1 {
     font-size: 2.8rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Slightly adjusted shadow */
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     position: relative;
     display: inline-block;
-    color: var(--white); /* Ensure h1 is white on header */
+    color: var(--white);
 }
 
-h1::after {
+header h1::after {
     content: "";
     position: absolute;
     bottom: -10px;
@@ -77,162 +76,134 @@ h1::after {
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: var(--accent-color); /* Gold accent for h1 underline */
+    background: var(--light-bg);
+}
+
+header hr {
+    border: 0;
+    height: 2px;
+    background: var(--white);
+    width: 80%;
+    margin: 0 auto;
+    opacity: 0.7;
 }
 
 /* Navigation Styles */
 nav {
-    background-color: var(--primary-light); /* Lighter blue for nav bar */
+    background-color: var(--primary-color);
     box-shadow: var(--shadow-sm);
-    position: sticky; /* Sticky nav for better usability */
+    text-align: center;
+    padding: 1rem 0;
+    position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 1rem 0;
-    gap: 1rem;
-}
-
 nav a {
-    color: var(--white); /* White links on light blue nav */
+    color: var(--white);
     text-decoration: none;
     font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
+    padding: 0.75rem 1.25rem;
+    margin: 0 0.5rem;
+    border-radius: 5px;
     transition: var(--transition);
-    position: relative;
     display: inline-block;
+    background-color: var(--primary-light);
 }
 
 nav a:hover {
-    background-color: var(--white); /* White background on hover */
-    color: var(--primary-dark);    /* Dark blue text on hover */
-    transform: translateY(-2px);
-}
-
-nav a.active {
-    background-color: var(--white);
+    background-color: var(--light-bg);
     color: var(--primary-dark);
-    font-weight: 700; /* Bolder active link */
+    transform: translateY(-2px);
 }
 
 /* Main Content Styles */
 main {
     flex: 1;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 2rem auto;
     padding: 0 2rem;
-    width: 100%;
-}
-
-.section {
-    background: var(--light-bg); /* Light background for sections, contrasting with blue body */
-    color: var(--text-color-on-white); /* Dark text for light background sections */
-    border-radius: 8px;
-    box-shadow: var(--shadow-sm);
-    padding: 2rem;
-    margin-bottom: 2rem;
-    transition: var(--transition);
-}
-
-.section:hover {
+    background-color: var(--white);
     box-shadow: var(--shadow-md);
-    transform: translateY(-3px);
+    border-radius: 8px;
+    padding-bottom: 2rem;
 }
 
-h2 {
-    color: var(--primary-dark); /* Dark blue for headings inside sections */
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent-color); /* Gold accent for h2 underline */
+.center {
+    text-align: center;
+    margin: 2rem 0;
 }
 
-h3 {
-    color: var(--primary-color); /* Main blue for h3 */
-    font-size: 1.5rem;
-    margin: 1.5rem 0 1rem;
-    position: relative;
-    padding-left: 1rem;
+.center img {
+    border: 5px solid var(--primary-light);
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    padding: 5px;
+    background-color: var(--white);
 }
 
-h3::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--accent-color); /* Gold accent for h3 side border */
-    border-radius: 2px;
+.center img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-color: var(--light-bg);
 }
 
-p {
-    color: var(--white); /* Lighter dark text for paragraphs in sections */
+section {
+    background: var(--white);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+}
+
+section h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary-dark);
+    display: inline-block;
+}
+
+section p {
+    color: var(--text-color-on-light);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-/* Image Styles */
-.img-container {
-    text-align: center;
-    margin: 2.5rem 0;
-    position: relative;
-}
-
-.img-container img {
-    border: 5px solid var(--white); /* White border for images */
-    border-radius: 10px;
-    box-shadow: var(--shadow-md);
-    max-width: 100%;
-    height: auto;
-    transition: var(--transition);
-}
-
-.img-container img:hover {
-    transform: scale(1.02) rotate(1deg); /* Added slight rotation for more dynamic hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    line-height: 1.7;
+    text-align: justify;
 }
 
 /* List Styles */
 ol, ul {
     margin-left: 1.5rem;
     margin-bottom: 1.5rem;
-    color: var(--white); /* Ensure list text color is correct on light section bg */
+    color: var(--text-color-on-light);
 }
 
+/* Style untuk ordered list (ol) */
 ol {
-    list-style-type: none;
-    counter-reset: custom-counter;
+    counter-reset: item; /* Reset counter dengan nama 'item' */
+    list-style-type: none; /* Hilangkan default bullet */
+    margin-left: 0;
 }
 
-ol li {
-    counter-increment: custom-counter;
+ol > li {
+    counter-increment: item; /* Increment counter untuk setiap li langsung di dalam ol */
     margin-bottom: 1rem;
     position: relative;
-    padding-left: 2.5rem;
+    padding-left: 2.5rem; /* Beri ruang untuk nomor urut */
 }
 
-ol li::before {
-    content: counter(custom-counter);
+ol > li::before {
+    content: counter(item); /* Gunakan nilai counter sebagai konten */
     position: absolute;
     left: 0;
-    top: 0;
-    background: var(--primary-color); /* Blue background for ordered list numbers */
-    color: var(--white);             /* White text for numbers */
-    width: 1.8rem;
-    height: 1.8rem;
+    top: 0.2rem;
+    background: var(--primary-dark);
+    color: var(--white);
+    width: 1.6rem;
+    height: 1.6rem;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -241,73 +212,84 @@ ol li::before {
     font-size: 0.9rem;
 }
 
+/* Style untuk nested list - level 2 */
+ol ol {
+    margin-top: 0.8rem;
+    margin-left: 1rem;
+    counter-reset: subitem; /* Reset counter untuk level berikutnya */
+}
+
+ol ol > li {
+    counter-increment: subitem; /* Increment sub-counter */
+    padding-left: 2.2rem;
+    margin-bottom: 0.6rem;
+}
+
+ol ol > li::before {
+    content: counter(item) "." counter(subitem); /* Format "1.1", "1.2", dst */
+    background: var(--primary-dark); /* Warna sedikit berbeda untuk sub-level */
+    font-size: 0.8rem;
+    width: 1.8rem; /* Sedikit lebih lebar untuk menampung dua digit */
+}
+
+/* Style untuk unordered list (ul) */
+ul {
+    list-style-type: none;
+    margin-left: 1rem;
+}
+
 ul li {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.7rem;
     position: relative;
-    padding-left: 1.8rem;
+    padding-left: 1.5rem;
 }
 
 ul li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.7em; /* Adjust vertical alignment if needed */
-    transform: translateY(-50%); /* Center the bullet */
-    width: 0.6em;
-    height: 0.6em;
-    background: var(--accent-color); /* Gold accent for unordered list bullets */
+    top: 0.7rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--);
     border-radius: 50%;
-}
-
-/* Footer Styles */
-footer {
-    background: var(--primary-dark); /* Darker blue for footer */
-    color: var(--white);
-    text-align: center;
-    padding: 2.5rem 0; /* Increased padding */
-    margin-top: 3rem;
-    border-top: 3px solid var(--accent-color); /* Gold accent top border for footer */
-}
-
-footer p {
-    color: var(--light-bg); /* Lighter text for footer on dark blue */
-    margin-bottom: 0;
-    font-size: 0.95rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem; /* Slightly smaller for mobile */
+    header h1 {
+        font-size: 2.2rem;
     }
     
-    nav ul {
+    nav {
+        padding: 0.5rem 0;
+        display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        align-items: center; /* Center items in column nav */
+        align-items: center;
     }
     
     nav a {
-        padding: 0.6rem 1.2rem; /* Adjusted padding */
-        display: block; /* Make links take full width for easier tapping */
+        margin: 0.3rem;
+        width: 80%;
         text-align: center;
     }
     
     main {
         padding: 0 1rem;
-        margin: 1.5rem auto; /* Adjusted margin for mobile */
+        margin: 1rem auto;
     }
     
-    .section {
-        padding: 1.5rem;
+    section {
+        padding: 1rem;
     }
 
-    h2 {
-        font-size: 1.8rem;
+    section h3 {
+        font-size: 1.5rem;
     }
-
-    h3 {
-        font-size: 1.3rem;
+    
+    .center img {
+        width: 180px;
+        height: auto;
     }
 }
 
@@ -317,9 +299,17 @@ footer p {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.section {
+section {
     animation: fadeIn 0.6s ease forwards;
 }
 
-/* Ensure Montserrat font is linked in HTML: */
-/* <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> */
+/* Light animation for logo */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.center img {
+    animation: pulse 3s infinite ease-in-out;
+}
