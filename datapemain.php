@@ -1,15 +1,8 @@
 <?php
-
-require 'function.php';
-
-$query = "SELECT * FROM pemain";
-
-$rows = query($query);
-
+    require 'function.php';
+    $query = "SELECT * FROM pemain";
+    $rows = query($query);
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -21,7 +14,10 @@ $rows = query($query);
 </head>
 <body>
     <h1>Data Pemain </h1>
-
+    <a href="tambahdata.php">
+        <button style="margin-bottom: 12px; background-color: lightblue;">Tambah Data</button>
+    </a>
+    
     <Table border="1px" cellspacing="0" cellpadding="12px">
         <tr>
             <th>No</th>
@@ -30,6 +26,7 @@ $rows = query($query);
             <th>Nomor Punggung</th>
             <th>Posisi</th>
             <th>Harga Jual</th>
+            <th>Aksi</th>   
         </tr>
         <?php 
         $i = 1;
@@ -41,6 +38,11 @@ $rows = query($query);
             <td><?= $pmn["nomor_punggung"] ?></td>
             <td><?= $pmn["posisi"] ?></td>
             <td><?= $pmn["harga"] ?></td>
+            <td>
+                <a href="hapusdata.php?id=<?= $pmn["id"] ?>">
+                    <button style="margin-bottom: 12px; background-color: lightblue;">Hapus</button>
+                </a>
+            </td>
         </tr>
         <?php $i++; } ?>
     </Table>
