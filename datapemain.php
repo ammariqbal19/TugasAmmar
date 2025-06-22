@@ -38,8 +38,7 @@
             <td><?= $pmn["nomor_punggung"] ?></td>
             <td><?= $pmn["posisi"] ?></td>
             <td><?= $pmn["harga"] ?></td>
-            <td>
-                <a href="hapusdata.php?id=<?= $pmn["id"] ?>">
+            <td><a href="hapusdata.php?id=<?= $pmn["id"] ?>">
                     <button style="margin-bottom: 12px; background-color: lightblue;">Hapus</button>
                 </a>
             </td>

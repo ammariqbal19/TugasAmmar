@@ -17,6 +17,7 @@ require 'function.php';
             alert('Data gagal dihapus!');
             document.location.href = 'datapemain.php';
         </script>";
+        mysqli_error($koneksi);
     }
 
 
