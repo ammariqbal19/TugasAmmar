@@ -63,4 +63,10 @@ function upload() {
 
     return $namaFileBaru;
 }
+
+function hapusdata($id) {
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM pemain WHERE id = $id");
+    return mysqli_affected_rows($koneksi);
+}
 ?>

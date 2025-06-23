@@ -15,10 +15,10 @@
     
     <!-- Navigation -->
     <nav>
-        <a href="index.html">HOME</a> 
-        <a href="profile.html">PROFILE</a> 
-        <a href="about.html">ABOUT ME</a> 
-        <a href="login.html">LOGIN</a>
+        <a href="index.php">HOME</a> 
+        <a href="profile.php">PROFILE</a> 
+        <a href="about.php">ABOUT ME</a> 
+        <a href="login.php">LOGIN</a>
     </nav>
 
     <!-- Main Content -->

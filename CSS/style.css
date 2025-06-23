@@ -174,6 +174,50 @@ section p {
     text-align: justify;
 }
 
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+th, td {
+    padding: 1rem 0.75rem;
+    text-align: center;
+}
+
+th {
+    background: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 3px solid var(--primary-dark);
+}
+
+tr:nth-child(even) {
+    background: var(--light-bg);
+}
+
+tr:hover {
+    background: #e6f0fa;
+    transition: var(--transition);
+}
+
+td img {
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--primary-light);
+    background: var(--white);
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
 /* List Styles */
 ol, ul {
     margin-left: 1.5rem;
@@ -255,6 +299,300 @@ ul li::before {
     border-radius: 50%;
 }
 
+/* Button Styles */
+button {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+button:hover {
+    background: var(--primary-light);
+    color: var(--accent-color);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Danger Button (for Hapus) */
+button[style*="background-color: lightblue;"] {
+    background: var(--secondary-color) !important;
+    color: var(--white) !important;
+}
+
+button[style*="background-color: lightblue;"]:hover {
+    background: #b31228 !important;
+    color: var(--accent-color) !important;
+}
+
+/* Form Styles */
+form {
+    background: var(--white);
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    max-width: 400px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+form label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.3rem;
+}
+
+form input[type="text"],
+form input[type="file"] {
+    padding: 0.6rem 0.8rem;
+    border: 1.5px solid var(--primary-light);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: var(--light-bg);
+    color: var(--text-color-on-light);
+    transition: border 0.2s;
+}
+
+form input[type="text"]:focus,
+form input[type="file"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+form button[type="submit"] {
+    margin-top: 1rem;
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.7rem 0;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+form button[type="submit"]:hover {
+    background: var(--primary-light);
+    color: var(--accent-color);
+}
+
+/* Tombol Tambah Data di bawah tabel */
+.add-data-btn {
+    display: inline-block;
+    margin: 24px auto 0 auto;
+    background: var(--accent-color);
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.7rem 2.2rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.add-data-btn:hover {
+    background: var(--primary-dark);
+    color: var(--accent-color);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
+/* Center the button under the table */
+.table-action-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Responsive: make button full width on mobile */
+@media (max-width: 600px) {
+    .add-data-btn {
+        width: 90%;
+        font-size: 1rem;
+        padding: 0.8rem 0;
+    }
+}
+
+/* LOGIN PAGE STYLES */
+.login-container {
+    max-width: 410px;
+    margin: 70px auto 0 auto;
+    background: linear-gradient(135deg, var(--primary-color) 80%, var(--accent-color) 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(26,62,114,0.18), 0 2px 8px rgba(0,0,0,0.08);
+    padding: 2.5rem 2.2rem 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.7s;
+    border: 3px solid var(--primary-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, var(--accent-color) 0%, transparent 70%);
+    opacity: 0.25;
+    z-index: 0;
+}
+
+.login-container h1 {
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-shadow: 1px 2px 8px rgba(26,62,114,0.18);
+    z-index: 1;
+}
+
+.login-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 1;
+}
+
+.login-container label {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--primary-light);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--white);
+    color: var(--primary-dark);
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(26,62,114,0.06);
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.login-container input[type="checkbox"] {
+    accent-color: var(--accent-color);
+    margin-right: 0.5rem;
+    transform: scale(1.2);
+}
+
+.login-container .remember-label {
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.login-container input[type="submit"] {
+    margin-top: 1rem;
+    background: linear-gradient(90deg, var(--primary-dark) 60%, var(--accent-color) 100%);
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding: 0.8rem 0;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(26,62,114,0.10);
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.login-container input[type="submit"]:hover {
+    background: var(--accent-color);
+    color: var(--primary-dark);
+    transform: translateY(-2px) scale(1.04);
+}
+
+.login-container p {
+    margin-top: 1.5rem;
+    text-align: center;
+    color: var(--white);
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.login-container a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.2s;
+}
+
+.login-container a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Tambahan: Logo PSIS di atas form */
+.login-container .psis-badge {
+    margin-bottom: 1.2rem;
+    margin-top: -2.2rem;
+    box-shadow: 0 4px 16px rgba(26,62,114,0.12);
+    border: 4px solid var(--white);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    position: relative;
+    z-index: 1;
+}
+
+.login-container .psis-badge img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    margin: 10%;
+}
+
+/* Responsive Login */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+        max-width: 98vw;
+    }
+    .login-container h1 {
+        font-size: 1.3rem;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     header h1 {
@@ -293,6 +631,39 @@ ul li::before {
     }
 }
 
+/* Responsive Table */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th {
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    }
+    tr {
+        margin-bottom: 1.2rem;
+        border-bottom: 2px solid var(--primary-light);
+    }
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        min-height: 40px;
+    }
+    td:before {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: var(--primary-dark);
+        content: attr(data-label);
+    }
+}
+
 /* Animations */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -312,4 +683,207 @@ section {
 
 .center img {
     animation: pulse 3s infinite ease-in-out;
+}
+
+/* --- PSIS LOGIN GLOW & BLUE BOOST --- */
+.login-container {
+    background: linear-gradient(135deg, #1a3e72 85%, #f8c300 100%);
+    border: 4px solid #0f2a50;
+    box-shadow: 0 0 32px 0 #1a3e72cc, 0 0 0 8px #f8c30033;
+    filter: drop-shadow(0 0 16px #1a3e72cc);
+}
+
+.login-container h1 {
+    text-shadow: 0 2px 16px #0f2a50, 0 0 8px #f8c300;
+    letter-spacing: 3px;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    background: #eaf1fb;
+    border: 2px solid #1a3e72;
+    color: #0f2a50;
+    font-weight: 600;
+    box-shadow: 0 2px 8px #1a3e7233;
+}
+
+.login-container input[type="email"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #f8c300;
+    box-shadow: 0 0 0 2px #f8c30099;
+}
+
+.login-container input[type="submit"] {
+    background: linear-gradient(90deg, #0f2a50 60%, #f8c300 100%);
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: 0 2px 12px #1a3e72cc;
+    border: none;
+}
+
+.login-container input[type="submit"]:hover {
+    background: #f8c300;
+    color: #1a3e72;
+    box-shadow: 0 0 16px #f8c30099, 0 0 8px #1a3e72;
+    transform: scale(1.04);
+}
+
+.psis-badge {
+    box-shadow: 0 0 24px #f8c30099, 0 2px 8px #1a3e72cc;
+    border: 4px solid #f8c300;
+    background: #fff;
+    margin-bottom: 1.5rem;
+    margin-top: -2.5rem;
+}
+
+.login-container p, .login-container .remember-label {
+    color: #fff;
+    text-shadow: 0 1px 8px #1a3e72;
+}
+
+.login-container a {
+    color: #f8c300;
+    text-shadow: 0 1px 8px #1a3e72;
+}
+
+/* === PSIS THEME EXTENSION === */
+
+/* Badge PSIS */
+.psis-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    box-shadow: 0 4px 16px rgba(26,62,114,0.15);
+    border: 4px solid var(--white);
+    margin: 1rem auto;
+    position: relative;
+    overflow: hidden;
+}
+.psis-badge img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    margin: 10%;
+}
+
+/* Highlight PSIS */
+.psis-highlight {
+    background: var(--accent-color);
+    color: var(--primary-dark);
+    padding: 0.3em 0.8em;
+    border-radius: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(248,195,0,0.08);
+    display: inline-block;
+}
+
+/* PSIS Section Title */
+.psis-section-title {
+    color: var(--primary-color);
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--primary-light) 100%);
+    padding: 0.5em 1.2em;
+    border-radius: 8px 0 8px 0;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(26,62,114,0.08);
+}
+
+/* PSIS Footer */
+.psis-footer {
+    background: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 1.2rem 0;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+    border-top: 4px solid var(--accent-color);
+}
+
+/* PSIS Button Style */
+.psis-btn {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 6px;
+    padding: 0.6em 1.5em;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background 0.3s, color 0.3s, border 0.3s;
+    cursor: pointer;
+    margin: 0.5em 0;
+}
+.psis-btn:hover {
+    background: var(--accent-color);
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-dark);
+}
+
+/* PSIS Table Accent */
+.psis-table th {
+    background: linear-gradient(90deg, var(--primary-color) 70%, var(--accent-color) 100%);
+    color: var(--white);
+}
+.psis-table td {
+    border: 1px solid var(--primary-light);
+    padding: 0.8rem;
+    position: relative;
+}
+
+.psis-table td:hover {
+    background: var(--light-bg);
+    transition: var(--transition);
+}
+
+.psis-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.psis-table td:hover::before {
+    display: block;
+}
+
+/* Responsive PSIS Table */
+@media (max-width: 600px) {
+    .psis-table, .psis-table tbody, .psis-table tr, .psis-table td {
+        display: block;
+        width: 100%;
+    }
+    .psis-table th {
+        display: none;
+    }
+    .psis-table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+        border: 1px solid var(--primary-light);
+    }
+    .psis-table td::before {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        width: calc(100% - 1rem);
+        white-space: nowrap;
+        font-weight: bold;
+        color: var(--primary-dark);
+        content: attr(data-label);
+    }
 }
