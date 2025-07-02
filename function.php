@@ -69,4 +69,36 @@ function hapusdata($id) {
     mysqli_query($koneksi, "DELETE FROM pemain WHERE id = $id");
     return mysqli_affected_rows($koneksi);
 }
+
+function ubahdata($data, $id) 
+{
+    global $koneksi;
+    $nama = $data["nama"];
+    $nomor_punggung = $data["nomor_punggung"];
+    $posisi = $data["posisi"];
+    $harga = $data["harga"];
+    $fotoLama = $data["fotoLama"];
+
+    // Proses upload foto
+    if ($_FILES['foto']['error'] === 4) {
+        $foto = $fotoLama; // tidak upload foto baru
+    } else {
+        $foto = upload();
+        if (!$foto) {
+            return 0; // upload gagal
+        }
+    }
+
+    $query = "UPDATE pemain SET 
+                nama = '$nama', 
+                nomor_punggung = '$nomor_punggung', 
+                posisi = '$posisi', 
+                harga = '$harga',
+                foto = '$foto'
+              WHERE id = $id";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
 ?>
