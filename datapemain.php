@@ -1,5 +1,13 @@
 <?php
-    require 'function.php';
+
+session_start();
+if(!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+
+    include 'function.php';
     $query = "SELECT * FROM pemain";
     $rows = query($query);
 ?>
@@ -15,6 +23,7 @@
     
 </head>
 <body>
+    <a href="logout.php">LogOut</a>
     <h1>Data Pemain </h1>
     <a href="tambahdata.php">
         <button style="margin-bottom: 12px; background-color: lightblue;">Tambah Data</button>
