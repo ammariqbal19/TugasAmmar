@@ -1,62 +1,62 @@
-    <?php
+<?php
+session_start();
+require 'function.php';
 
-    session_start();
-    
+$error = false;
 
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
+    $query = "SELECT * FROM user WHERE username = '$username'";
+    $result = mysqli_query($koneksi, $query);
+    $user = mysqli_fetch_assoc($result);
 
-    require 'function.php';
-
-    $error = false;
-
-    if (isset($_POST["login"])) {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-
-        $query = "SELECT * FROM user WHERE username = '$username'";
-        $result = mysqli_query($koneksi, $query);
-        $user = mysqli_fetch_assoc($result);
-
-        if(mysqli_num_rows($result) > 0) {
-            if(password_verify($password, $user["password"])) {
-                $_SESSION["login"] = $user["id"];
-                header("Location: datapemain.php");
-                exit;
-            }
+    if(mysqli_num_rows($result) > 0) {
+        if(password_verify($password, $user["password"])) {
+            $_SESSION["login"] = $user["id"];
+            header("Location: datapemain.php");
+            exit;
         }
-        $error = true;
     }
-    ?>
+    $error = true;
+}
+?>
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1 align="center">Login</h1>
-        <div class="container mt-4" style="max-width: 500px;">
-            <div class="card text-white" style="background-color: darkmagenta;">
-                <div class="card-body">
-                    <form action="" method="post">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username:</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <?php if($error) : ?>
-                            <p style="color: red; font-style: italic;">Username atau Password salah!</p>
-                        <?php endif; ?> 
-                        <button type="submit" name="login" class="btn btn-light">Login</button>
-                    </form>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <h1 align="center">Login</h1>
+    <div class="container mt-4" style="max-width: 500px;">
+        <div class="card text-white" style="background-color: blue;">
+            <div class="card-body">
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <?php if($error) : ?>
+                        <p style="color: red; font-style: italic;">Username atau Password salah!</p>
+                    <?php endif; ?> 
+                    <button type="submit" name="login" class="btn btn-light w-100 mb-2">Login</button>
+                </form>
+
+                <!-- Tombol Register -->
+                <p class="text-center mt-3">Belum punya akun?</p>
+                <a href="register.php" class="btn btn-outline-light w-100">Register di sini</a>
+                 <a href="ndex.php" class="btn btn-outline-light w-100">Kembali ke Home</a>
             </div>
         </div>
-    </body>
-    </html>
+    </div>
+</body>
+</html>

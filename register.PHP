@@ -29,7 +29,7 @@ if (isset($_POST["register"])) {
 <body>
     <h1 align="center">REGISTER</h1>
     <div class="container mt-4" style="max-width: 500px;">
-        <div class="card text-white" style="background-color: darkmagenta;">
+        <div class="card text-white" style="background-color: blue;">
             <div class="card-body">
                 <form action="" method="post" enctype="multipart/form-data">
                     <div class="mb-3">

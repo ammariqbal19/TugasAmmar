@@ -10,10 +10,10 @@
         <h1 align ="center">PSIS SEMARANG</h1>  <!-- align untuk ketengah -->
         <hr size="5px" color="black"> <!-- hr untuk garis -->
         <nav align="center"> <!-- navbar -->
-            <a href="index.html"> HOME</a> 
-            <a href="profile.html">PROFILE</a> 
-            <a href="about.html">ABOUTME</a> 
-            <a href="login.html">LOGIN</a>
+            <a href="index.php"> HOME</a> 
+            <a href="profile.php">PROFILE</a> 
+            <a href="about.php">ABOUTME</a> 
+            <a href="login.php">LOGIN</a>
         </nav>
         <h2>Data PSIS Semarang</h2>
         
